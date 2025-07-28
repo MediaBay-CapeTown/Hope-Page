@@ -1,0 +1,1509 @@
+<!-- Project Status Dashboard Component -->
+<div id="dashboard-modal" class="modal dashboard-modal">
+    <div class="modal-header">
+        <h3>Project Dashboard</h3>
+        <div class="dashboard-user-info">
+            <img src="" alt="User Avatar" id="dashboard-avatar">
+            <div class="user-details">
+                <span id="dashboard-username">John Doe</span>
+                <small>Client Portal</small>
+            </div>
+        </div>
+        <button class="modal-close" onclick="closeDashboard()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="modal-content dashboard-content">
+        <!-- Dashboard Navigation -->
+        <div class="dashboard-nav">
+            <button class="nav-tab active" data-tab="overview" onclick="switchDashboardTab('overview')">
+                <i class="fas fa-tachometer-alt"></i>
+                Overview
+            </button>
+            <button class="nav-tab" data-tab="projects" onclick="switchDashboardTab('projects')">
+                <i class="fas fa-project-diagram"></i>
+                Projects
+            </button>
+            <button class="nav-tab" data-tab="messages" onclick="switchDashboardTab('messages')">
+                <i class="fas fa-comments"></i>
+                Messages
+                <span class="notification-badge">3</span>
+            </button>
+            <button class="nav-tab" data-tab="invoices" onclick="switchDashboardTab('invoices')">
+                <i class="fas fa-file-invoice-dollar"></i>
+                Invoices
+            </button>
+            <button class="nav-tab" data-tab="settings" onclick="switchDashboardTab('settings')">
+                <i class="fas fa-cog"></i>
+                Settings
+            </button>
+        </div>
+        
+        <!-- Overview Tab -->
+        <div class="dashboard-tab active" data-tab="overview">
+            <div class="dashboard-header">
+                <h4>Welcome back, <span id="welcome-name">John</span>!</h4>
+                <p>Here's what's happening with your projects</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Active Projects</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Days to Completion</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">75%</span>
+                        <span class="stat-label">Overall Progress</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">New Messages</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-section">
+                    <h5>Recent Activity</h5>
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-upload"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Design mockups uploaded</strong></p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>New message from MediaBay team</strong></p>
+                                <span class="activity-time">5 hours ago</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Homepage design approved</strong></p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Development phase started</strong></p>
+                                <span class="activity-time">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-section">
+                    <h5>Quick Actions</h5>
+                    <div class="quick-actions-grid">
+                        <button class="quick-action-btn" onclick="switchDashboardTab('messages')">
+                            <i class="fas fa-comments"></i>
+                            <span>View Messages</span>
+                        </button>
+                        
+                        <button class="quick-action-btn" onclick="scheduleCall()">
+                            <i class="fas fa-phone"></i>
+                            <span>Schedule Call</span>
+                        </button>
+                        
+                        <button class="quick-action-btn" onclick="uploadFiles()">
+                            <i class="fas fa-upload"></i>
+                            <span>Upload Files</span>
+                        </button>
+                        
+                        <button class="quick-action-btn" onclick="requestChanges()">
+                            <i class="fas fa-edit"></i>
+                            <span>Request Changes</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Projects Tab -->
+        <div class="dashboard-tab" data-tab="projects">
+            <div class="dashboard-header">
+                <h4>Your Projects</h4>
+                <button class="btn btn-primary" onclick="startNewProject()">
+                    <i class="fas fa-plus"></i>
+                    New Project
+                </button>
+            </div>
+            
+            <div class="projects-list">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-info">
+                            <h6>E-Commerce Website</h6>
+                            <span class="project-id">#MB-2025-001</span>
+                        </div>
+                        <div class="project-status status-in-progress">
+                            <i class="fas fa-clock"></i>
+                            In Progress
+                        </div>
+                    </div>
+                    
+                    <div class="project-progress">
+                        <div class="progress-info">
+                            <span>Overall Progress</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h6>Discovery & Planning</h6>
+                                <span>Completed Jan 15, 2025</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h6>Design Phase</h6>
+                                <span>Completed Jan 22, 2025</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item active">
+                            <div class="timeline-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h6>Development</h6>
+                                <span>In Progress - Due Feb 5, 2025</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h6>Testing & QA</h6>
+                                <span>Scheduled Feb 6-10, 2025</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h6>Launch</h6>
+                                <span>Scheduled Feb 12, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <button class="btn btn-outline" onclick="viewProjectDetails('MB-2025-001')">
+                            <i class="fas fa-eye"></i>
+                            View Details
+                        </button>
+                        <button class="btn btn-primary" onclick="previewProject('MB-2025-001')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Preview Site
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-info">
+                            <h6>Portfolio Website</h6>
+                            <span class="project-id">#MB-2024-089</span>
+                        </div>
+                        <div class="project-status status-completed">
+                            <i class="fas fa-check-circle"></i>
+                            Completed
+                        </div>
+                    </div>
+                    
+                    <div class="project-progress">
+                        <div class="progress-info">
+                            <span>Overall Progress</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>Completed: Dec 20, 2024</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Live: www.johndoe-portfolio.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <button class="btn btn-outline" onclick="viewProjectDetails('MB-2024-089')">
+                            <i class="fas fa-eye"></i>
+                            View Details
+                        </button>
+                        <button class="btn btn-primary" onclick="visitLiveSite('MB-2024-089')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Visit Live Site
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Messages Tab -->
+        <div class="dashboard-tab" data-tab="messages">
+            <div class="dashboard-header">
+                <h4>Messages</h4>
+                <button class="btn btn-primary" onclick="composeMessage()">
+                    <i class="fas fa-plus"></i>
+                    New Message
+                </button>
+            </div>
+            
+            <div class="messages-container">
+                <div class="messages-list">
+                    <div class="message-thread unread">
+                        <div class="message-avatar">
+                            <img src="https://ui-avatars.com/api/?name=MediaBay+Team&background=3B82F6&color=fff" alt="MediaBay Team">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h6>MediaBay Team</h6>
+                                <span class="message-time">2 hours ago</span>
+                            </div>
+                            <p class="message-preview">Hi John! We've uploaded the latest design mockups for your e-commerce site. Please review and let us know your thoughts...</p>
+                            <div class="message-meta">
+                                <span class="message-project">E-Commerce Website</span>
+                                <span class="unread-indicator">New</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-thread unread">
+                        <div class="message-avatar">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=10B981&color=fff" alt="Sarah Johnson">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h6>Sarah Johnson - Project Manager</h6>
+                                <span class="message-time">5 hours ago</span>
+                            </div>
+                            <p class="message-preview">Great news! The development phase is ahead of schedule. We should be ready for testing by February 3rd...</p>
+                            <div class="message-meta">
+                                <span class="message-project">E-Commerce Website</span>
+                                <span class="unread-indicator">New</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-thread">
+                        <div class="message-avatar">
+                            <img src="https://ui-avatars.com/api/?name=Mike+Chen&background=8B5CF6&color=fff" alt="Mike Chen">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h6>Mike Chen - Developer</h6>
+                                <span class="message-time">1 day ago</span>
+                            </div>
+                            <p class="message-preview">The shopping cart functionality has been implemented. You can test it on the staging site using the link I sent earlier...</p>
+                            <div class="message-meta">
+                                <span class="message-project">E-Commerce Website</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="message-thread">
+                        <div class="message-avatar">
+                            <img src="https://ui-avatars.com/api/?name=MediaBay+Support&background=F59E0B&color=fff" alt="Support">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <h6>MediaBay Support</h6>
+                                <span class="message-time">3 days ago</span>
+                            </div>
+                            <p class="message-preview">Thank you for your feedback on the portfolio website. We're glad you're happy with the final result!</p>
+                            <div class="message-meta">
+                                <span class="message-project">Portfolio Website</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="message-compose" id="message-compose" style="display: none;">
+                    <div class="compose-header">
+                        <h6>New Message</h6>
+                        <button class="close-compose" onclick="closeCompose()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <form class="compose-form">
+                        <div class="form-group">
+                            <label for="message-to">To</label>
+                            <select id="message-to" required>
+                                <option value="">Select recipient</option>
+                                <option value="team">MediaBay Team</option>
+                                <option value="project-manager">Project Manager</option>
+                                <option value="developer">Developer</option>
+                                <option value="designer">Designer</option>
+                                <option value="support">Support</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message-project">Project</label>
+                            <select id="message-project">
+                                <option value="">Select project (optional)</option>
+                                <option value="MB-2025-001">E-Commerce Website</option>
+                                <option value="MB-2024-089">Portfolio Website</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message-subject">Subject</label>
+                            <input type="text" id="message-subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message-body">Message</label>
+                            <textarea id="message-body" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message-attachments">Attachments</label>
+                            <input type="file" id="message-attachments" multiple>
+                        </div>
+                        
+                        <div class="compose-actions">
+                            <button type="button" class="btn btn-outline" onclick="closeCompose()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Invoices Tab -->
+        <div class="dashboard-tab" data-tab="invoices">
+            <div class="dashboard-header">
+                <h4>Invoices & Payments</h4>
+                <div class="invoice-summary">
+                    <span class="summary-item">
+                        <strong>Total Paid:</strong> R45,000
+                    </span>
+                    <span class="summary-item">
+                        <strong>Outstanding:</strong> R15,000
+                    </span>
+                </div>
+            </div>
+            
+            <div class="invoices-list">
+                <div class="invoice-card">
+                    <div class="invoice-header">
+                        <div class="invoice-info">
+                            <h6>Invoice #INV-2025-001</h6>
+                            <span class="invoice-date">January 25, 2025</span>
+                        </div>
+                        <div class="invoice-status status-pending">
+                            <i class="fas fa-clock"></i>
+                            Pending
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-details">
+                        <div class="invoice-project">
+                            <span>Project: E-Commerce Website</span>
+                            <span>Development Phase Payment</span>
+                        </div>
+                        <div class="invoice-amount">
+                            <span class="amount">R15,000</span>
+                            <span class="due-date">Due: February 1, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-actions">
+                        <button class="btn btn-outline" onclick="downloadInvoice('INV-2025-001')">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </button>
+                        <button class="btn btn-primary" onclick="payInvoice('INV-2025-001')">
+                            <i class="fas fa-credit-card"></i>
+                            Pay Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="invoice-card">
+                    <div class="invoice-header">
+                        <div class="invoice-info">
+                            <h6>Invoice #INV-2024-089</h6>
+                            <span class="invoice-date">December 15, 2024</span>
+                        </div>
+                        <div class="invoice-status status-paid">
+                            <i class="fas fa-check-circle"></i>
+                            Paid
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-details">
+                        <div class="invoice-project">
+                            <span>Project: Portfolio Website</span>
+                            <span>Final Payment</span>
+                        </div>
+                        <div class="invoice-amount">
+                            <span class="amount">R25,000</span>
+                            <span class="paid-date">Paid: December 18, 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-actions">
+                        <button class="btn btn-outline" onclick="downloadInvoice('INV-2024-089')">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </button>
+                        <button class="btn btn-outline" onclick="downloadReceipt('INV-2024-089')">
+                            <i class="fas fa-receipt"></i>
+                            Download Receipt
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="invoice-card">
+                    <div class="invoice-header">
+                        <div class="invoice-info">
+                            <h6>Invoice #INV-2024-088</h6>
+                            <span class="invoice-date">November 30, 2024</span>
+                        </div>
+                        <div class="invoice-status status-paid">
+                            <i class="fas fa-check-circle"></i>
+                            Paid
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-details">
+                        <div class="invoice-project">
+                            <span>Project: E-Commerce Website</span>
+                            <span>Initial Payment (50%)</span>
+                        </div>
+                        <div class="invoice-amount">
+                            <span class="amount">R20,000</span>
+                            <span class="paid-date">Paid: December 2, 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-actions">
+                        <button class="btn btn-outline" onclick="downloadInvoice('INV-2024-088')">
+                            <i class="fas fa-download"></i>
+                            Download PDF
+                        </button>
+                        <button class="btn btn-outline" onclick="downloadReceipt('INV-2024-088')">
+                            <i class="fas fa-receipt"></i>
+                            Download Receipt
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Settings Tab -->
+        <div class="dashboard-tab" data-tab="settings">
+            <div class="dashboard-header">
+                <h4>Account Settings</h4>
+            </div>
+            
+            <div class="settings-sections">
+                <div class="settings-section">
+                    <h5>Profile Information</h5>
+                    <form class="settings-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="settings-name">Full Name</label>
+                                <input type="text" id="settings-name" value="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="settings-email">Email Address</label>
+                                <input type="email" id="settings-email" value="john.doe@example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="settings-phone">Phone Number</label>
+                                <input type="tel" id="settings-phone" value="+27 123 456 789">
+                            </div>
+                            <div class="form-group">
+                                <label for="settings-company">Company Name</label>
+                                <input type="text" id="settings-company" value="John Doe Photography">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Save Changes
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="settings-section">
+                    <h5>Notification Preferences</h5>
+                    <div class="notification-settings">
+                        <label class="setting-toggle">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">Email notifications for project updates</span>
+                        </label>
+                        
+                        <label class="setting-toggle">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">SMS notifications for urgent messages</span>
+                        </label>
+                        
+                        <label class="setting-toggle">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">Push notifications in browser</span>
+                        </label>
+                        
+                        <label class="setting-toggle">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">Weekly project summary emails</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <h5>Security</h5>
+                    <div class="security-settings">
+                        <button class="btn btn-outline" onclick="changePassword()">
+                            <i class="fas fa-key"></i>
+                            Change Password
+                        </button>
+                        
+                        <button class="btn btn-outline" onclick="enable2FA()">
+                            <i class="fas fa-shield-alt"></i>
+                            Enable Two-Factor Authentication
+                        </button>
+                        
+                        <button class="btn btn-outline" onclick="downloadData()">
+                            <i class="fas fa-download"></i>
+                            Download My Data
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="settings-section danger-zone">
+                    <h5>Danger Zone</h5>
+                    <p>These actions cannot be undone. Please proceed with caution.</p>
+                    <button class="btn btn-danger" onclick="deleteAccount()">
+                        <i class="fas fa-trash"></i>
+                        Delete Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.dashboard-modal {
+    max-width: 1200px;
+    width: 95%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+    flex-shrink: 0;
+}
+
+.dashboard-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dashboard-user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+}
+
+.user-details span {
+    display: block;
+    font-weight: 600;
+    color: var(--gray-800);
+}
+
+.user-details small {
+    color: var(--gray-500);
+}
+
+.dashboard-content {
+    flex: 1;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-nav {
+    display: flex;
+    border-bottom: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    flex-shrink: 0;
+}
+
+.nav-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--gray-600);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.nav-tab:hover {
+    background: var(--white);
+    color: var(--gray-800);
+}
+
+.nav-tab.active {
+    background: var(--white);
+    color: var(--primary-blue);
+    border-bottom: 2px solid var(--primary-blue);
+}
+
+.notification-badge {
+    background: var(--primary-pink);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-full);
+    min-width: 20px;
+    text-align: center;
+}
+
+.dashboard-tab {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.dashboard-tab.active {
+    display: block;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dashboard-header h4 {
+    margin: 0;
+    color: var(--gray-800);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gray-800);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-top: 0.25rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.dashboard-section {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.dashboard-section h5 {
+    margin-bottom: 1.5rem;
+    color: var(--gray-800);
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 0.5rem;
+}
+
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+}
+
+.activity-item:hover {
+    background: var(--gray-100);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-blue);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.activity-content p {
+    margin: 0 0 0.25rem 0;
+    color: var(--gray-800);
+}
+
+.activity-time {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.quick-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    color: var(--gray-700);
+}
+
+.quick-action-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.quick-action-btn i {
+    font-size: 1.5rem;
+}
+
+.quick-action-btn span {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-blue);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.project-info h6 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.25rem;
+    color: var(--gray-800);
+}
+
+.project-id {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.project-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.status-in-progress {
+    background: var(--primary-yellow);
+    color: var(--white);
+}
+
+.status-completed {
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+.status-pending {
+    background: var(--primary-pink);
+    color: var(--white);
+}
+
+.status-paid {
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+.project-progress {
+    margin-bottom: 2rem;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    transition: width var(--transition-normal);
+}
+
+.project-timeline {
+    margin-bottom: 2rem;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    width: 2px;
+    height: calc(100% + 0.5rem);
+    background: var(--gray-200);
+}
+
+.timeline-item.completed::after {
+    background: var(--primary-green);
+}
+
+.timeline-item.active::after {
+    background: var(--primary-blue);
+}
+
+.timeline-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.timeline-item.completed .timeline-icon {
+    background: var(--primary-green);
+}
+
+.timeline-item.active .timeline-icon {
+    background: var(--primary-blue);
+}
+
+.timeline-item:not(.completed):not(.active) .timeline-icon {
+    background: var(--gray-400);
+}
+
+.timeline-content h6 {
+    margin: 0 0 0.25rem 0;
+    color: var(--gray-800);
+}
+
+.timeline-content span {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
+.project-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
+.meta-item i {
+    color: var(--primary-blue);
+}
+
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.messages-container {
+    position: relative;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message-thread {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border-left: 4px solid transparent;
+}
+
+.message-thread:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.message-thread.unread {
+    border-left-color: var(--primary-blue);
+    background: var(--gray-50);
+}
+
+.message-thread {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+}
+
+.message-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+}
+
+.message-content {
+    flex: 1;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.message-header h6 {
+    margin: 0;
+    color: var(--gray-800);
+}
+
+.message-time {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.message-preview {
+    margin: 0 0 1rem 0;
+    color: var(--gray-600);
+    line-height: 1.4;
+}
+
+.message-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message-project {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.unread-indicator {
+    background: var(--primary-blue);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-full);
+}
+
+.message-compose {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: 10;
+}
+
+.compose-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.compose-header h6 {
+    margin: 0;
+    color: var(--gray-800);
+}
+
+.close-compose {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.close-compose:hover {
+    background: var(--gray-100);
+    color: var(--gray-800);
+}
+
+.compose-form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.compose-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.invoices-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.invoice-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-green);
+}
+
+.invoice-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.invoice-info h6 {
+    margin: 0 0 0.25rem 0;
+    color: var(--gray-800);
+}
+
+.invoice-date {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.invoice-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.invoice-project span {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
+.invoice-project span:first-child {
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 0.25rem;
+}
+
+.invoice-amount {
+    text-align: right;
+}
+
+.amount {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.25rem;
+}
+
+.due-date,
+.paid-date {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.invoice-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.invoice-summary {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.875rem;
+}
+
+.summary-item strong {
+    color: var(--gray-800);
+}
+
+.settings-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.settings-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.settings-section h5 {
+    margin-bottom: 1.5rem;
+    color: var(--gray-800);
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 0.5rem;
+}
+
+.settings-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.notification-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.setting-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.setting-toggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.toggle-slider {
+    width: 50px;
+    height: 24px;
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+    position: relative;
+    transition: all var(--transition-fast);
+}
+
+.toggle-slider::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--white);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.setting-toggle input:checked + .toggle-slider {
+    background: var(--primary-blue);
+}
+
+.setting-toggle input:checked + .toggle-slider::after {
+    transform: translateX(26px);
+}
+
+.toggle-label {
+    color: var(--gray-700);
+}
+
+.security-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+}
+
+.danger-zone {
+    border: 2px solid var(--primary-pink);
+    background: rgba(236, 72, 153, 0.05);
+}
+
+.danger-zone h5 {
+    color: var(--primary-pink);
+}
+
+.btn-danger {
+    background: var(--primary-pink);
+    color: var(--white);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: #be185d;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-modal {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .dashboard-nav {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+    
+    .nav-tab {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        align-items: start;
+    }
+    
+    .settings-form .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .invoice-details {
+        flex-direction: column;
+    }
+    
+    .invoice-amount {
+        text-align: left;
+    }
+    
+    .project-actions,
+    .invoice-actions {
+        flex-direction: column;
+    }
+    
+    .project-meta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+</style>

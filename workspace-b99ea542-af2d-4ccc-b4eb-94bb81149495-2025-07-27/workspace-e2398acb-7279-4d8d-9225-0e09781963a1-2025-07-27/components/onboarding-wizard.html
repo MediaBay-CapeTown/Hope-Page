@@ -1,0 +1,970 @@
+<!-- Client Onboarding Wizard Component -->
+<div id="onboarding-modal" class="modal onboarding-modal">
+    <div class="modal-header">
+        <h3>Welcome to MediaBay!</h3>
+        <div class="onboarding-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="onboarding-progress"></div>
+            </div>
+            <span class="progress-text">Step <span id="current-step">1</span> of <span id="total-steps">5</span></span>
+        </div>
+        <button class="modal-close" onclick="closeOnboarding()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="modal-content onboarding-content">
+        <!-- Step 1: Welcome & Basic Info -->
+        <div class="onboarding-step active" data-step="1">
+            <div class="step-header">
+                <div class="step-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h4>Tell us about yourself</h4>
+                <p>Let's start with some basic information about you and your business.</p>
+            </div>
+            
+            <div class="step-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-name">Full Name *</label>
+                        <input type="text" id="client-name" name="clientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-name">Company Name</label>
+                        <input type="text" id="company-name" name="companyName">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-email">Email Address *</label>
+                        <input type="email" id="client-email" name="clientEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-phone">Phone Number</label>
+                        <input type="tel" id="client-phone" name="clientPhone">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="business-type">Business Type *</label>
+                    <select id="business-type" name="businessType" required>
+                        <option value="">Select your business type</option>
+                        <option value="photography">Photography</option>
+                        <option value="ecommerce">E-Commerce</option>
+                        <option value="restaurant">Restaurant/Food</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="technology">Technology</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 2: Project Goals -->
+        <div class="onboarding-step" data-step="2">
+            <div class="step-header">
+                <div class="step-icon">
+                    <i class="fas fa-target"></i>
+                </div>
+                <h4>What are your goals?</h4>
+                <p>Help us understand what you want to achieve with your new website.</p>
+            </div>
+            
+            <div class="step-form">
+                <div class="goals-grid">
+                    <label class="goal-card">
+                        <input type="checkbox" name="goals" value="increase-sales">
+                        <div class="goal-content">
+                            <i class="fas fa-chart-line"></i>
+                            <h5>Increase Sales</h5>
+                            <p>Generate more revenue through online channels</p>
+                        </div>
+                    </label>
+                    
+                    <label class="goal-card">
+                        <input type="checkbox" name="goals" value="brand-awareness">
+                        <div class="goal-content">
+                            <i class="fas fa-bullhorn"></i>
+                            <h5>Brand Awareness</h5>
+                            <p>Build recognition and credibility in your market</p>
+                        </div>
+                    </label>
+                    
+                    <label class="goal-card">
+                        <input type="checkbox" name="goals" value="lead-generation">
+                        <div class="goal-content">
+                            <i class="fas fa-magnet"></i>
+                            <h5>Lead Generation</h5>
+                            <p>Capture and nurture potential customers</p>
+                        </div>
+                    </label>
+                    
+                    <label class="goal-card">
+                        <input type="checkbox" name="goals" value="customer-service">
+                        <div class="goal-content">
+                            <i class="fas fa-headset"></i>
+                            <h5>Customer Service</h5>
+                            <p>Provide better support and information to clients</p>
+                        </div>
+                    </label>
+                    
+                    <label class="goal-card">
+                        <input type="checkbox" name="goals" value="online-presence">
+                        <div class="goal-content">
+                            <i class="fas fa-globe"></i>
+                            <h5>Online Presence</h5>
+                            <p>Establish a professional digital footprint</p>
+                        </div>
+                    </label>
+                    
+                    <label class="goal-card">
+                        <input type="checkbox" name="goals" value="automation">
+                        <div class="goal-content">
+                            <i class="fas fa-robot"></i>
+                            <h5>Process Automation</h5>
+                            <p>Streamline business operations and workflows</p>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="other-goals">Other Goals (Optional)</label>
+                    <textarea id="other-goals" name="otherGoals" rows="3" placeholder="Describe any other specific goals or objectives..."></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 3: Budget & Timeline -->
+        <div class="onboarding-step" data-step="3">
+            <div class="step-header">
+                <div class="step-icon">
+                    <i class="fas fa-calendar-dollar"></i>
+                </div>
+                <h4>Budget & Timeline</h4>
+                <p>Let's discuss your budget range and project timeline expectations.</p>
+            </div>
+            
+            <div class="step-form">
+                <div class="form-group">
+                    <label>What's your budget range? (ZAR) *</label>
+                    <div class="budget-options">
+                        <label class="budget-card">
+                            <input type="radio" name="budget" value="10000-25000">
+                            <div class="budget-content">
+                                <span class="budget-amount">R10,000 - R25,000</span>
+                                <span class="budget-desc">Basic website with essential features</span>
+                            </div>
+                        </label>
+                        
+                        <label class="budget-card">
+                            <input type="radio" name="budget" value="25000-50000">
+                            <div class="budget-content">
+                                <span class="budget-amount">R25,000 - R50,000</span>
+                                <span class="budget-desc">Professional website with advanced features</span>
+                            </div>
+                        </label>
+                        
+                        <label class="budget-card">
+                            <input type="radio" name="budget" value="50000-100000">
+                            <div class="budget-content">
+                                <span class="budget-amount">R50,000 - R100,000</span>
+                                <span class="budget-desc">Complex website with custom functionality</span>
+                            </div>
+                        </label>
+                        
+                        <label class="budget-card">
+                            <input type="radio" name="budget" value="100000+">
+                            <div class="budget-content">
+                                <span class="budget-amount">R100,000+</span>
+                                <span class="budget-desc">Enterprise solution with full customization</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>When do you need this completed? *</label>
+                    <div class="timeline-options">
+                        <label class="timeline-option">
+                            <input type="radio" name="timeline" value="asap">
+                            <span>ASAP (Rush job - may incur additional fees)</span>
+                        </label>
+                        <label class="timeline-option">
+                            <input type="radio" name="timeline" value="1-month">
+                            <span>Within 1 month</span>
+                        </label>
+                        <label class="timeline-option">
+                            <input type="radio" name="timeline" value="2-3-months">
+                            <span>2-3 months</span>
+                        </label>
+                        <label class="timeline-option">
+                            <input type="radio" name="timeline" value="flexible">
+                            <span>Flexible timeline</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="launch-date">Preferred Launch Date (Optional)</label>
+                    <input type="date" id="launch-date" name="launchDate">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 4: Brand & Design Preferences -->
+        <div class="onboarding-step" data-step="4">
+            <div class="step-header">
+                <div class="step-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h4>Brand & Design</h4>
+                <p>Tell us about your brand identity and design preferences.</p>
+            </div>
+            
+            <div class="step-form">
+                <div class="form-group">
+                    <label>Do you have existing brand materials?</label>
+                    <div class="brand-materials">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="brandMaterials" value="logo">
+                            <span>Logo</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="brandMaterials" value="colors">
+                            <span>Brand Colors</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="brandMaterials" value="fonts">
+                            <span>Typography/Fonts</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="brandMaterials" value="guidelines">
+                            <span>Brand Guidelines</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="brandMaterials" value="photos">
+                            <span>Professional Photos</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="brandMaterials" value="none">
+                            <span>None - Need help creating brand identity</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>What design style appeals to you?</label>
+                    <div class="design-styles">
+                        <label class="style-card">
+                            <input type="radio" name="designStyle" value="modern">
+                            <div class="style-content">
+                                <div class="style-preview modern-preview"></div>
+                                <span>Modern & Clean</span>
+                            </div>
+                        </label>
+                        
+                        <label class="style-card">
+                            <input type="radio" name="designStyle" value="creative">
+                            <div class="style-content">
+                                <div class="style-preview creative-preview"></div>
+                                <span>Creative & Bold</span>
+                            </div>
+                        </label>
+                        
+                        <label class="style-card">
+                            <input type="radio" name="designStyle" value="professional">
+                            <div class="style-content">
+                                <div class="style-preview professional-preview"></div>
+                                <span>Professional & Corporate</span>
+                            </div>
+                        </label>
+                        
+                        <label class="style-card">
+                            <input type="radio" name="designStyle" value="playful">
+                            <div class="style-content">
+                                <div class="style-preview playful-preview"></div>
+                                <span>Playful & Fun</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="inspiration-sites">Inspiration Websites (Optional)</label>
+                    <textarea id="inspiration-sites" name="inspirationSites" rows="3" placeholder="Share URLs of websites you like or describe the style you're looking for..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="brand-upload">Upload Brand Materials</label>
+                    <div class="file-upload-area" id="brand-upload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop files here or click to browse</p>
+                        <input type="file" multiple accept="image/*,.pdf,.ai,.psd">
+                        <small>Supported formats: JPG, PNG, PDF, AI, PSD (Max 10MB each)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 5: Final Details -->
+        <div class="onboarding-step" data-step="5">
+            <div class="step-header">
+                <div class="step-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h4>Almost Done!</h4>
+                <p>Just a few final details to get your project started.</p>
+            </div>
+            
+            <div class="step-form">
+                <div class="form-group">
+                    <label for="project-description">Project Description *</label>
+                    <textarea id="project-description" name="projectDescription" rows="4" placeholder="Describe your project in detail. What do you want your website to accomplish? Any specific features or functionality you need?" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>How did you hear about us?</label>
+                    <select name="referralSource">
+                        <option value="">Select an option</option>
+                        <option value="google">Google Search</option>
+                        <option value="social-media">Social Media</option>
+                        <option value="referral">Friend/Colleague Referral</option>
+                        <option value="advertising">Online Advertising</option>
+                        <option value="portfolio">Saw our portfolio</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Communication Preferences</label>
+                    <div class="communication-prefs">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="communicationPrefs" value="email" checked>
+                            <span>Email Updates</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="communicationPrefs" value="phone">
+                            <span>Phone Calls</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="communicationPrefs" value="whatsapp">
+                            <span>WhatsApp Messages</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="communicationPrefs" value="video-calls">
+                            <span>Video Calls</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="newsletter" checked>
+                        <span class="checkmark"></span>
+                        Subscribe to our newsletter for web development tips and updates
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="terms" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#" onclick="showModal('terms')">Terms of Service</a> and <a href="#" onclick="showModal('privacy')">Privacy Policy</a> *
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Success Step -->
+        <div class="onboarding-step success-step" data-step="6">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h4>Welcome to MediaBay!</h4>
+                <p>Thank you for completing the onboarding process. We've received your information and will be in touch within 24 hours to discuss your project in detail.</p>
+                
+                <div class="next-steps">
+                    <h5>What happens next?</h5>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <span class="step-number">1</span>
+                            <div class="step-text">
+                                <strong>Project Review</strong>
+                                <p>Our team will review your requirements and prepare a detailed proposal.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">2</span>
+                            <div class="step-text">
+                                <strong>Discovery Call</strong>
+                                <p>We'll schedule a call to discuss your project and answer any questions.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">3</span>
+                            <div class="step-text">
+                                <strong>Proposal & Timeline</strong>
+                                <p>You'll receive a detailed proposal with timeline and pricing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="success-actions">
+                    <button class="btn btn-primary" onclick="goToDashboard()">
+                        <i class="fas fa-tachometer-alt"></i>
+                        View Project Dashboard
+                    </button>
+                    <button class="btn btn-outline" onclick="closeOnboarding()">
+                        <i class="fas fa-home"></i>
+                        Return to Homepage
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-footer onboarding-footer">
+        <button class="btn btn-outline" id="onboarding-prev" onclick="prevOnboardingStep()" style="display: none;">
+            <i class="fas fa-arrow-left"></i>
+            Previous
+        </button>
+        
+        <div class="step-indicators">
+            <span class="step-dot active" data-step="1"></span>
+            <span class="step-dot" data-step="2"></span>
+            <span class="step-dot" data-step="3"></span>
+            <span class="step-dot" data-step="4"></span>
+            <span class="step-dot" data-step="5"></span>
+        </div>
+        
+        <button class="btn btn-primary" id="onboarding-next" onclick="nextOnboardingStep()">
+            Next
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+</div>
+
+<style>
+.onboarding-modal {
+    max-width: 800px;
+    width: 95%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.onboarding-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+    flex-shrink: 0;
+}
+
+.onboarding-progress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    max-width: 300px;
+    margin: 0 2rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    transition: width var(--transition-normal);
+    width: 20%;
+}
+
+.progress-text {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    white-space: nowrap;
+}
+
+.onboarding-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.onboarding-step {
+    display: none;
+    padding: 2rem;
+    min-height: 400px;
+}
+
+.onboarding-step.active {
+    display: block;
+}
+
+.step-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.step-header h4 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--gray-800);
+}
+
+.step-header p {
+    color: var(--gray-600);
+    font-size: 1.125rem;
+}
+
+.step-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.goal-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.goal-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.goal-content {
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.goal-card:hover .goal-content,
+.goal-card input:checked + .goal-content {
+    border-color: var(--primary-blue);
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.goal-content i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+.goal-card:hover .goal-content i,
+.goal-card input:checked + .goal-content i {
+    color: var(--white);
+}
+
+.goal-content h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+}
+
+.goal-content p {
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.budget-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.budget-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.budget-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.budget-content {
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.budget-card:hover .budget-content,
+.budget-card input:checked + .budget-content {
+    border-color: var(--primary-green);
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+.budget-amount {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.budget-desc {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+.timeline-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.timeline-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.timeline-option:hover {
+    background: var(--gray-100);
+}
+
+.timeline-option input:checked {
+    accent-color: var(--primary-blue);
+}
+
+.brand-materials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.checkbox-option:hover {
+    background: var(--gray-100);
+}
+
+.checkbox-option input:checked {
+    accent-color: var(--primary-blue);
+}
+
+.design-styles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.style-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.style-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.style-content {
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.style-card:hover .style-content,
+.style-card input:checked + .style-content {
+    border-color: var(--primary-purple);
+    background: var(--primary-purple);
+    color: var(--white);
+}
+
+.style-preview {
+    width: 100%;
+    height: 60px;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+}
+
+.modern-preview {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.creative-preview {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+}
+
+.professional-preview {
+    background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+}
+
+.playful-preview {
+    background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%);
+}
+
+.file-upload-area {
+    border: 2px dashed var(--gray-300);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.file-upload-area:hover {
+    border-color: var(--primary-blue);
+    background: var(--gray-50);
+}
+
+.file-upload-area input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-area i {
+    font-size: 2rem;
+    color: var(--gray-400);
+    margin-bottom: 1rem;
+}
+
+.file-upload-area p {
+    margin-bottom: 0.5rem;
+    color: var(--gray-600);
+}
+
+.file-upload-area small {
+    color: var(--gray-500);
+}
+
+.success-step {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.success-content {
+    max-width: 500px;
+}
+
+.success-icon {
+    width: 100px;
+    height: 100px;
+    background: var(--primary-green);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.success-content h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--gray-800);
+}
+
+.success-content > p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    margin-bottom: 2rem;
+}
+
+.next-steps {
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.next-steps h5 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--gray-800);
+}
+
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.step-item {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.step-text strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--gray-800);
+}
+
+.step-text p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
+.success-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.onboarding-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-top: 1px solid var(--gray-200);
+    flex-shrink: 0;
+}
+
+.step-indicators {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.step-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    background: var(--gray-300);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.step-dot.active {
+    background: var(--primary-blue);
+}
+
+.communication-prefs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .onboarding-modal {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .goals-grid,
+    .budget-options,
+    .design-styles {
+        grid-template-columns: 1fr;
+    }
+    
+    .brand-materials,
+    .communication-prefs {
+        grid-template-columns: 1fr;
+    }
+    
+    .success-actions {
+        flex-direction: column;
+    }
+    
+    .onboarding-progress {
+        margin: 0 1rem;
+    }
+}
+</style>

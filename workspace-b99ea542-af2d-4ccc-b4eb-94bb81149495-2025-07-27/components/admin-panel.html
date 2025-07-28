@@ -1,0 +1,1341 @@
+<!-- Admin Panel Component -->
+<div id="admin-modal" class="modal admin-modal">
+    <div class="modal-header">
+        <h3>MediaBay Admin Panel</h3>
+        <div class="admin-user-info">
+            <img src="./assets/images/logo.jpeg" alt="Admin Avatar" id="admin-avatar">
+            <div class="user-details">
+                <span id="admin-username">Administrator</span>
+                <small>Admin Portal</small>
+            </div>
+        </div>
+        <button class="modal-close" onclick="closeAdminPanel()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="modal-content admin-content">
+        <!-- Admin Navigation -->
+        <div class="admin-nav">
+            <button class="nav-tab active" data-tab="dashboard" onclick="switchAdminTab('dashboard')">
+                <i class="fas fa-tachometer-alt"></i>
+                Dashboard
+            </button>
+            <button class="nav-tab" data-tab="clients" onclick="switchAdminTab('clients')">
+                <i class="fas fa-users"></i>
+                Clients
+                <span class="notification-badge" id="new-clients-count">5</span>
+            </button>
+            <button class="nav-tab" data-tab="projects" onclick="switchAdminTab('projects')">
+                <i class="fas fa-project-diagram"></i>
+                Projects
+            </button>
+            <button class="nav-tab" data-tab="analytics" onclick="switchAdminTab('analytics')">
+                <i class="fas fa-chart-line"></i>
+                Analytics
+            </button>
+            <button class="nav-tab" data-tab="finances" onclick="switchAdminTab('finances')">
+                <i class="fas fa-money-bill-wave"></i>
+                Finances
+            </button>
+            <button class="nav-tab" data-tab="settings" onclick="switchAdminTab('settings')">
+                <i class="fas fa-cog"></i>
+                Settings
+            </button>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div class="admin-tab active" data-tab="dashboard">
+            <div class="admin-header">
+                <h4>Admin Dashboard</h4>
+                <p>Overview of your business performance</p>
+            </div>
+
+            <div class="admin-stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h5>Total Clients</h5>
+                        <span class="stat-number" id="total-clients">127</span>
+                        <small class="stat-change positive">+12% this month</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h5>Active Projects</h5>
+                        <span class="stat-number" id="active-projects">23</span>
+                        <small class="stat-change positive">+5 new this week</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h5>Monthly Revenue</h5>
+                        <span class="stat-number">R 89,450</span>
+                        <small class="stat-change positive">+18% vs last month</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h5>Conversion Rate</h5>
+                        <span class="stat-number">24.5%</span>
+                        <small class="stat-change negative">-2.1% vs last month</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-charts">
+                <div class="chart-container">
+                    <h5>Revenue Trend</h5>
+                    <canvas id="revenue-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h5>Project Status Distribution</h5>
+                    <canvas id="project-status-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h5>Recent Activity</h5>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>New client registered:</strong> Sarah Johnson</p>
+                            <small>2 hours ago</small>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Project completed:</strong> TechCorp Website</p>
+                            <small>5 hours ago</small>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-money-bill"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Payment received:</strong> R 15,000 from ABC Ltd</p>
+                            <small>1 day ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clients Tab -->
+        <div class="admin-tab" data-tab="clients">
+            <div class="admin-header">
+                <h4>Client Management</h4>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" onclick="addNewClient()">
+                        <i class="fas fa-plus"></i>
+                        Add Client
+                    </button>
+                    <button class="btn btn-outline" onclick="exportClients()">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
+
+            <div class="admin-filters">
+                <input type="text" placeholder="Search clients..." id="client-search">
+                <select id="client-status-filter">
+                    <option value="">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="pending">Pending</option>
+                </select>
+                <select id="client-type-filter">
+                    <option value="">All Types</option>
+                    <option value="individual">Individual</option>
+                    <option value="business">Business</option>
+                    <option value="enterprise">Enterprise</option>
+                </select>
+            </div>
+
+            <div class="clients-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Company</th>
+                            <th>Projects</th>
+                            <th>Status</th>
+                            <th>Last Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clients-table-body">
+                        <tr>
+                            <td>
+                                <div class="client-info">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="Client">
+                                    <div>
+                                        <strong>Sarah Johnson</strong>
+                                        <small>sarah@example.com</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>TechCorp Solutions</td>
+                            <td>3</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>2 days ago</td>
+                            <td>
+                                <button class="btn-icon" onclick="viewClient(1)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" onclick="editClient(1)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon danger" onclick="deleteClient(1)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- More client rows would be dynamically generated -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div class="admin-tab" data-tab="projects">
+            <div class="admin-header">
+                <h4>Project Management</h4>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" onclick="createNewProject()">
+                        <i class="fas fa-plus"></i>
+                        New Project
+                    </button>
+                    <button class="btn btn-outline" onclick="exportProjects()">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
+
+            <div class="project-kanban">
+                <div class="kanban-column">
+                    <h5>Planning <span class="count">5</span></h5>
+                    <div class="kanban-cards" id="planning-cards">
+                        <div class="project-card" draggable="true">
+                            <div class="project-header">
+                                <h6>E-commerce Website</h6>
+                                <span class="priority high">High</span>
+                            </div>
+                            <p>ABC Retail Store</p>
+                            <div class="project-meta">
+                                <span class="deadline">Due: Aug 15</span>
+                                <span class="budget">R 25,000</span>
+                            </div>
+                            <div class="project-team">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=30&h=30&fit=crop&crop=face" alt="Team member">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=30&h=30&fit=crop&crop=face" alt="Team member">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban-column">
+                    <h5>In Progress <span class="count">8</span></h5>
+                    <div class="kanban-cards" id="progress-cards">
+                        <div class="project-card" draggable="true">
+                            <div class="project-header">
+                                <h6>Corporate Website</h6>
+                                <span class="priority medium">Medium</span>
+                            </div>
+                            <p>XYZ Corporation</p>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span>65%</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="deadline">Due: Aug 30</span>
+                                <span class="budget">R 45,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban-column">
+                    <h5>Review <span class="count">3</span></h5>
+                    <div class="kanban-cards" id="review-cards">
+                        <!-- Review projects -->
+                    </div>
+                </div>
+
+                <div class="kanban-column">
+                    <h5>Completed <span class="count">12</span></h5>
+                    <div class="kanban-cards" id="completed-cards">
+                        <!-- Completed projects -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div class="admin-tab" data-tab="analytics">
+            <div class="admin-header">
+                <h4>Analytics & Reports</h4>
+                <div class="admin-actions">
+                    <select id="analytics-period">
+                        <option value="7d">Last 7 days</option>
+                        <option value="30d" selected>Last 30 days</option>
+                        <option value="90d">Last 90 days</option>
+                        <option value="1y">Last year</option>
+                    </select>
+                    <button class="btn btn-outline" onclick="exportAnalytics()">
+                        <i class="fas fa-download"></i>
+                        Export Report
+                    </button>
+                </div>
+            </div>
+
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h5>Website Traffic</h5>
+                    <canvas id="traffic-chart"></canvas>
+                    <div class="analytics-summary">
+                        <div class="summary-item">
+                            <span class="label">Unique Visitors</span>
+                            <span class="value">2,847</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Page Views</span>
+                            <span class="value">8,921</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Bounce Rate</span>
+                            <span class="value">32.4%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <h5>Lead Sources</h5>
+                    <canvas id="lead-sources-chart"></canvas>
+                    <div class="analytics-summary">
+                        <div class="summary-item">
+                            <span class="label">Organic Search</span>
+                            <span class="value">45%</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Direct</span>
+                            <span class="value">28%</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Social Media</span>
+                            <span class="value">27%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <h5>Conversion Funnel</h5>
+                    <div class="funnel-chart">
+                        <div class="funnel-stage">
+                            <span class="stage-label">Visitors</span>
+                            <div class="stage-bar" style="width: 100%">
+                                <span class="stage-value">2,847</span>
+                            </div>
+                        </div>
+                        <div class="funnel-stage">
+                            <span class="stage-label">Leads</span>
+                            <div class="stage-bar" style="width: 45%">
+                                <span class="stage-value">1,281</span>
+                            </div>
+                        </div>
+                        <div class="funnel-stage">
+                            <span class="stage-label">Quotes</span>
+                            <div class="stage-bar" style="width: 25%">
+                                <span class="stage-value">712</span>
+                            </div>
+                        </div>
+                        <div class="funnel-stage">
+                            <span class="stage-label">Clients</span>
+                            <div class="stage-bar" style="width: 12%">
+                                <span class="stage-value">342</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Finances Tab -->
+        <div class="admin-tab" data-tab="finances">
+            <div class="admin-header">
+                <h4>Financial Management</h4>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" onclick="createInvoice()">
+                        <i class="fas fa-plus"></i>
+                        New Invoice
+                    </button>
+                    <button class="btn btn-outline" onclick="exportFinances()">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
+
+            <div class="finance-overview">
+                <div class="finance-card">
+                    <h5>Monthly Revenue</h5>
+                    <span class="finance-amount">R 89,450</span>
+                    <small class="change positive">+18% vs last month</small>
+                </div>
+                <div class="finance-card">
+                    <h5>Outstanding Invoices</h5>
+                    <span class="finance-amount">R 23,750</span>
+                    <small>5 invoices pending</small>
+                </div>
+                <div class="finance-card">
+                    <h5>Expenses</h5>
+                    <span class="finance-amount">R 12,300</span>
+                    <small class="change negative">+5% vs last month</small>
+                </div>
+                <div class="finance-card">
+                    <h5>Net Profit</h5>
+                    <span class="finance-amount">R 77,150</span>
+                    <small class="change positive">+22% vs last month</small>
+                </div>
+            </div>
+
+            <div class="invoices-section">
+                <h5>Recent Invoices</h5>
+                <div class="invoices-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Client</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Due Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#INV-2025-001</td>
+                                <td>TechCorp Solutions</td>
+                                <td>R 15,000</td>
+                                <td><span class="status-badge paid">Paid</span></td>
+                                <td>Jul 15, 2025</td>
+                                <td>
+                                    <button class="btn-icon" onclick="viewInvoice('INV-2025-001')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="downloadInvoice('INV-2025-001')">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- More invoice rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="admin-tab" data-tab="settings">
+            <div class="admin-header">
+                <h4>System Settings</h4>
+            </div>
+
+            <div class="settings-sections">
+                <div class="settings-section">
+                    <h5>General Settings</h5>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label for="company-name-setting">Company Name</label>
+                            <input type="text" id="company-name-setting" value="MediaBay">
+                        </div>
+                        <div class="form-group">
+                            <label for="company-email-setting">Company Email</label>
+                            <input type="email" id="company-email-setting" value="info@mediabay.co.za">
+                        </div>
+                        <div class="form-group">
+                            <label for="company-phone-setting">Company Phone</label>
+                            <input type="tel" id="company-phone-setting" value="+27 21 123 4567">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h5>Notification Settings</h5>
+                    <div class="settings-toggles">
+                        <div class="toggle-item">
+                            <label>Email Notifications</label>
+                            <input type="checkbox" id="email-notifications" checked>
+                            <label for="email-notifications" class="toggle-switch"></label>
+                        </div>
+                        <div class="toggle-item">
+                            <label>Push Notifications</label>
+                            <input type="checkbox" id="push-notifications" checked>
+                            <label for="push-notifications" class="toggle-switch"></label>
+                        </div>
+                        <div class="toggle-item">
+                            <label>SMS Notifications</label>
+                            <input type="checkbox" id="sms-notifications">
+                            <label for="sms-notifications" class="toggle-switch"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h5>Security Settings</h5>
+                    <div class="settings-form">
+                        <button class="btn btn-outline" onclick="changeAdminPassword()">
+                            <i class="fas fa-key"></i>
+                            Change Password
+                        </button>
+                        <button class="btn btn-outline" onclick="enable2FA()">
+                            <i class="fas fa-shield-alt"></i>
+                            Enable 2FA
+                        </button>
+                        <button class="btn btn-outline" onclick="viewLoginHistory()">
+                            <i class="fas fa-history"></i>
+                            Login History
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button class="btn btn-primary" onclick="saveAdminSettings()">
+                    <i class="fas fa-save"></i>
+                    Save Settings
+                </button>
+                <button class="btn btn-outline" onclick="resetAdminSettings()">
+                    <i class="fas fa-undo"></i>
+                    Reset to Default
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Admin Panel Styles */
+.admin-modal {
+    width: 95vw;
+    max-width: 1400px;
+    height: 90vh;
+    max-height: 900px;
+}
+
+.admin-content {
+    display: flex;
+    height: 100%;
+    padding: 0;
+}
+
+.admin-nav {
+    width: 250px;
+    background: var(--gray-50);
+    border-right: 1px solid var(--gray-200);
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+[data-theme="dark"] .admin-nav {
+    background: var(--dark-surface);
+    border-right-color: var(--dark-border);
+}
+
+.admin-nav .nav-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.admin-nav .nav-tab:hover {
+    background: var(--gray-100);
+}
+
+[data-theme="dark"] .admin-nav .nav-tab:hover {
+    background: var(--dark-bg);
+}
+
+.admin-nav .nav-tab.active {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.admin-nav .nav-tab.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: white;
+}
+
+.admin-tab {
+    display: none;
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.admin-tab.active {
+    display: block;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .admin-header {
+    border-bottom-color: var(--dark-border);
+}
+
+.admin-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+[data-theme="dark"] .stat-card {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.stat-content h5 {
+    margin: 0 0 0.5rem 0;
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+[data-theme="dark"] .stat-number {
+    color: var(--dark-text);
+}
+
+.stat-change {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.stat-change.positive {
+    color: var(--primary-green);
+}
+
+.stat-change.negative {
+    color: #EF4444;
+}
+
+.admin-charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.chart-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .chart-container {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.chart-container h5 {
+    margin: 0 0 1rem 0;
+    color: var(--gray-900);
+}
+
+[data-theme="dark"] .chart-container h5 {
+    color: var(--dark-text);
+}
+
+.recent-activity {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .recent-activity {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+}
+
+[data-theme="dark"] .activity-item {
+    background: var(--dark-bg);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.admin-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.admin-filters input,
+.admin-filters select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    background: white;
+}
+
+[data-theme="dark"] .admin-filters input,
+[data-theme="dark"] .admin-filters select {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+.clients-table,
+.invoices-table {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .clients-table,
+[data-theme="dark"] .invoices-table {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.clients-table table,
+.invoices-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clients-table th,
+.clients-table td,
+.invoices-table th,
+.invoices-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .clients-table th,
+[data-theme="dark"] .clients-table td,
+[data-theme="dark"] .invoices-table th,
+[data-theme="dark"] .invoices-table td {
+    border-bottom-color: var(--dark-border);
+}
+
+.clients-table th,
+.invoices-table th {
+    background: var(--gray-50);
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+[data-theme="dark"] .clients-table th,
+[data-theme="dark"] .invoices-table th {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.client-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-badge.active {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.status-badge.inactive {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.status-badge.pending {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+.status-badge.paid {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.btn-icon {
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.btn-icon:hover {
+    background: var(--gray-100);
+}
+
+.btn-icon.danger:hover {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.project-kanban {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    height: 600px;
+}
+
+.kanban-column {
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    border: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .kanban-column {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.kanban-column h5 {
+    margin: 0 0 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kanban-column .count {
+    background: var(--gray-200);
+    color: var(--gray-700);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+}
+
+.kanban-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: calc(100% - 3rem);
+    overflow-y: auto;
+}
+
+.project-card {
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    cursor: grab;
+}
+
+[data-theme="dark"] .project-card {
+    background: var(--dark-bg);
+    border-color: var(--dark-border);
+}
+
+.project-card:active {
+    cursor: grabbing;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.project-header h6 {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.priority {
+    padding: 0.125rem 0.5rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.priority.high {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.priority.medium {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.priority.low {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.project-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.project-progress .progress-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.project-progress .progress-fill {
+    height: 100%;
+    background: var(--primary-blue);
+    transition: width var(--transition-normal);
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--gray-600);
+}
+
+.project-team {
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.project-team img {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    border: 2px solid white;
+    margin-left: -8px;
+}
+
+.project-team img:first-child {
+    margin-left: 0;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.analytics-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .analytics-card {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.analytics-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .analytics-summary {
+    border-top-color: var(--dark-border);
+}
+
+.summary-item {
+    text-align: center;
+}
+
+.summary-item .label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    margin-bottom: 0.25rem;
+}
+
+.summary-item .value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+[data-theme="dark"] .summary-item .value {
+    color: var(--dark-text);
+}
+
+.funnel-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.funnel-stage {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stage-label {
+    width: 80px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.stage-bar {
+    flex: 1;
+    height: 40px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    position: relative;
+}
+
+.finance-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.finance-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    text-align: center;
+}
+
+[data-theme="dark"] .finance-card {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.finance-card h5 {
+    margin: 0 0 1rem 0;
+    color: var(--gray-600);
+    font-size: 0.875rem;
+}
+
+.finance-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .finance-amount {
+    color: var(--dark-text);
+}
+
+.finance-card .change {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.settings-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.settings-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .settings-section {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.settings-section h5 {
+    margin: 0 0 1.5rem 0;
+    color: var(--gray-900);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .settings-section h5 {
+    color: var(--dark-text);
+    border-bottom-color: var(--dark-border);
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.settings-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.toggle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+}
+
+[data-theme="dark"] .toggle-item {
+    background: var(--dark-bg);
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: var(--radius-full);
+    transition: transform var(--transition-fast);
+}
+
+input[type="checkbox"]:checked + .toggle-switch {
+    background: var(--primary-blue);
+}
+
+input[type="checkbox"]:checked + .toggle-switch::after {
+    transform: translateX(26px);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.settings-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+[data-theme="dark"] .settings-actions {
+    border-top-color: var(--dark-border);
+}
+
+@media (max-width: 1024px) {
+    .admin-modal {
+        width: 100vw;
+        height: 100vh;
+        max-width: none;
+        max-height: none;
+        border-radius: 0;
+    }
+
+    .admin-content {
+        flex-direction: column;
+    }
+
+    .admin-nav {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 1rem;
+    }
+
+    .admin-nav .nav-tab {
+        white-space: nowrap;
+        padding: 0.5rem 1rem;
+    }
+
+    .project-kanban {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .admin-charts {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .finance-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .finance-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-summary {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+</style>

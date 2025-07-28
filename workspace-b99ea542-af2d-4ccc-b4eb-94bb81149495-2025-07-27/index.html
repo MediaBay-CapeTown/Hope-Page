@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediaBay - Professional web development company in Cape Town, South Africa. We customize modern, responsive websites to client desires. Expert web design, development, and digital solutions.">
+    <meta name="keywords" content="web development, web design, Cape Town, South Africa, responsive websites, modern web design, digital solutions, MediaBay">
+    <meta name="author" content="MediaBay">
+    <meta name="robots" content="index, follow">
+    
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="MediaBay - Professional Web Development | Cape Town, South Africa">
+    <meta property="og:description" content="We customize modern, responsive websites to client desires. Professional web development services in Cape Town, South Africa.">
+    <meta property="og:image" content="./assets/images/logo.jpeg">
+    <meta property="og:url" content="https://mediabay.co.za">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MediaBay">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MediaBay - Professional Web Development">
+    <meta name="twitter:description" content="We customize modern, responsive websites to client desires.">
+    <meta name="twitter:image" content="./assets/images/logo.jpeg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpeg">
+    <link rel="apple-touch-icon" href="./assets/images/logo.jpeg">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#4F46E5">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="./assets/css/styles.css" as="style">
+    <link rel="preload" href="./assets/js/main.js" as="script">
+    
+    <title>MediaBay - Professional Web Development | Cape Town, South Africa</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MediaBay",
+        "description": "Professional web development company in Cape Town, South Africa",
+        "url": "https://mediabay.co.za",
+        "logo": "./assets/images/logo.jpeg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cape Town",
+            "addressCountry": "South Africa"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+27732137041",
+            "contactType": "customer service",
+            "email": "mediabaythree@gmail.com"
+        },
+        "sameAs": [
+            "https://www.facebook.com/share/1Mcptsfa6T/",
+            "https://www.instagram.com/_mediabay?igsh=YzljYTk1ODg3Zg=="
+        ]
+    }
+    </script>
+</head>
+<body class="loading">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="./assets/images/logo.jpeg" alt="MediaBay Logo" class="logo-spin">
+            </div>
+            <div class="loading-text">
+                <h2>MediaBay</h2>
+                <p>Loading your digital experience...</p>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- Side Navigation Panel -->
+    <nav id="side-nav" class="side-nav">
+        <div class="nav-header">
+            <div class="nav-logo">
+                <img src="./assets/images/logo.jpeg" alt="MediaBay Logo">
+                <div class="nav-brand">
+                    <h3>MediaBay</h3>
+                    <p>We customize modern, responsive websites to client desires.</p>
+                </div>
+            </div>
+            <button id="nav-close" class="nav-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="nav-menu">
+            <a href="#home" class="nav-link active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#services" class="nav-link">
+                <i class="fas fa-cogs"></i>
+                <span>Services</span>
+            </a>
+            <a href="#portfolio" class="nav-link">
+                <i class="fas fa-briefcase"></i>
+                <span>Portfolio</span>
+            </a>
+            <a href="#about" class="nav-link">
+                <i class="fas fa-info-circle"></i>
+                <span>About</span>
+            </a>
+            <a href="#testimonials" class="nav-link">
+                <i class="fas fa-star"></i>
+                <span>Testimonials</span>
+            </a>
+            <a href="#industries" class="nav-link">
+                <i class="fas fa-industry"></i>
+                <span>Industries</span>
+            </a>
+            <a href="#quote" class="nav-link">
+                <i class="fas fa-calculator"></i>
+                <span>Get Quote</span>
+            </a>
+            <a href="#contact" class="nav-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+        
+        <div class="nav-auth" id="nav-auth">
+            <button class="btn-auth" id="login-btn">
+                <i class="fas fa-sign-in-alt"></i>
+                Login
+            </button>
+            <button class="btn-auth" id="signup-btn">
+                <i class="fas fa-user-plus"></i>
+                Sign Up
+            </button>
+        </div>
+        
+        <div class="nav-user hidden" id="nav-user">
+            <div class="user-profile">
+                <img src="" alt="Profile" id="user-avatar">
+                <div class="user-info">
+                    <span id="user-name">John Doe</span>
+                    <small>Welcome back!</small>
+                </div>
+            </div>
+            <button class="btn-logout" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Navigation Toggle -->
+    <button id="nav-toggle" class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-background">
+                <div class="gradient-overlay"></div>
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="title-line reveal-text">Crafting Digital</span>
+                            <span class="title-line reveal-text gradient-text">Experiences</span>
+                            <span class="title-line reveal-text">That Inspire</span>
+                        </h1>
+                        <p class="hero-subtitle reveal-text">
+                            We customize modern, responsive websites to client desires. 
+                            Based in Cape Town, serving South Africa and the world with 
+                            cutting-edge web development solutions.
+                        </p>
+                        <div class="hero-buttons reveal-text">
+                            <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                                <i class="fas fa-rocket"></i>
+                                Start Your Project
+                            </button>
+                            <button class="btn btn-outline" onclick="scrollToSection('portfolio')">
+                                <i class="fas fa-play"></i>
+                                View Our Work
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="150">0</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="98">0</span>
+                            <span class="stat-label">Client Satisfaction %</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">
+                        Comprehensive web development solutions tailored to your business needs
+                    </p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Custom websites built with modern technologies, optimized for performance and user experience.</p>
+                        <ul class="service-features">
+                            <li>Responsive Design</li>
+                            <li>SEO Optimization</li>
+                            <li>Fast Loading</li>
+                            <li>Mobile-First</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>E-Commerce Solutions</h3>
+                        <p>Complete online stores with secure payment processing and inventory management.</p>
+                        <ul class="service-features">
+                            <li>Payment Integration</li>
+                            <li>Inventory Management</li>
+                            <li>Order Tracking</li>
+                            <li>Analytics Dashboard</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Apps</h3>
+                        <p>Native and progressive web apps that provide seamless user experiences across all devices.</p>
+                        <ul class="service-features">
+                            <li>Cross-Platform</li>
+                            <li>Offline Support</li>
+                            <li>Push Notifications</li>
+                            <li>App Store Ready</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>SEO & Marketing</h3>
+                        <p>Boost your online visibility with our comprehensive SEO and digital marketing strategies.</p>
+                        <ul class="service-features">
+                            <li>Keyword Research</li>
+                            <li>Content Strategy</li>
+                            <li>Social Media</li>
+                            <li>Analytics Tracking</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Security & Maintenance</h3>
+                        <p>Keep your website secure and up-to-date with our ongoing maintenance and security services.</p>
+                        <ul class="service-features">
+                            <li>Security Monitoring</li>
+                            <li>Regular Updates</li>
+                            <li>Backup Solutions</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Solutions</h3>
+                        <p>Scalable cloud hosting and deployment solutions for businesses of all sizes.</p>
+                        <ul class="service-features">
+                            <li>Cloud Hosting</li>
+                            <li>Auto Scaling</li>
+                            <li>CDN Integration</li>
+                            <li>24/7 Monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Portfolio</h2>
+                    <p class="section-subtitle">
+                        Showcasing our expertise through successful projects and satisfied clients
+                    </p>
+                </div>
+                
+                <div class="portfolio-content">
+                    <div class="portfolio-left">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="MediaBay Team" class="team-photo">
+                            <div class="team-overlay">
+                                <h3>Our Expert Team</h3>
+                                <p>Passionate developers, designers, and strategists working together to bring your vision to life.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-right">
+                        <div class="portfolio-description">
+                            <h3>Delivering Excellence Since 2019</h3>
+                            <p>
+                                At MediaBay, we've had the privilege of working with diverse clients across various industries. 
+                                From small startups to established enterprises, we've helped businesses establish their digital 
+                                presence and achieve their online goals.
+                            </p>
+                            
+                            <div class="case-studies">
+                                <div class="case-study">
+                                    <div class="case-icon">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                    <div class="case-content">
+                                        <h4>Photography Studio Website</h4>
+                                        <p>Increased client bookings by 300% with a stunning portfolio showcase and online booking system.</p>
+                                        <span class="case-result">+300% Bookings</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="case-study">
+                                    <div class="case-icon">
+                                        <i class="fas fa-store"></i>
+                                    </div>
+                                    <div class="case-content">
+                                        <h4>E-Commerce Platform</h4>
+                                        <p>Built a complete online store that generated R2.5M in sales within the first year.</p>
+                                        <span class="case-result">R2.5M Revenue</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="case-study">
+                                    <div class="case-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="case-content">
+                                        <h4>Educational Platform</h4>
+                                        <p>Developed an online learning platform serving 10,000+ students across South Africa.</p>
+                                        <span class="case-result">10K+ Students</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                                <i class="fas fa-arrow-right"></i>
+                                Start Your Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-left">
+                        <div class="section-header">
+                            <h2 class="section-title">About MediaBay</h2>
+                            <p class="section-subtitle">
+                                Your trusted partner in digital transformation
+                            </p>
+                        </div>
+                        
+                        <div class="about-text">
+                            <p>
+                                Founded in Cape Town, South Africa, MediaBay has been at the forefront of web development 
+                                innovation since 2019. We specialize in creating modern, responsive websites that not only 
+                                look stunning but also drive real business results.
+                            </p>
+                            
+                            <p>
+                                Our team of passionate developers, designers, and digital strategists work collaboratively 
+                                to understand your unique business needs and translate them into powerful digital solutions. 
+                                We believe that every business deserves a professional online presence that reflects their 
+                                brand values and engages their target audience effectively.
+                            </p>
+                        </div>
+                        
+                        <div class="company-values">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="value-content">
+                                    <h4>Innovation</h4>
+                                    <p>We stay ahead of technology trends to deliver cutting-edge solutions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="value-content">
+                                    <h4>Partnership</h4>
+                                    <p>We build long-term relationships based on trust and mutual success.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="value-content">
+                                    <h4>Excellence</h4>
+                                    <p>We maintain the highest standards in every project we undertake.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-right">
+                        <div class="about-image">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Office" class="office-photo">
+                            <div class="about-stats">
+                                <div class="stat-card">
+                                    <span class="stat-number">150+</span>
+                                    <span class="stat-label">Projects</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-number">98%</span>
+                                    <span class="stat-label">Satisfaction</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Support</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mission-statement">
+                            <blockquote>
+                                "Our mission is to empower businesses with exceptional digital experiences 
+                                that drive growth, enhance user engagement, and create lasting value in 
+                                the digital landscape."
+                            </blockquote>
+                            <cite>- MediaBay Team</cite>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials & Case Studies Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Client Success Stories</h2>
+                    <p class="section-subtitle">
+                        Real feedback from real clients who've experienced the MediaBay difference
+                    </p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" data-aos="fade-up">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>
+                                "MediaBay transformed our online presence completely. Our new website not only looks 
+                                amazing but has increased our online bookings by 300%. The team was professional, 
+                                responsive, and delivered exactly what we needed."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah Johnson">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <span>Owner, Lens & Light Photography</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>
+                                "The e-commerce platform MediaBay built for us exceeded all expectations. We've 
+                                generated over R2.5 million in sales in our first year. Their ongoing support 
+                                and maintenance service is exceptional."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Michael Chen">
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <span>CEO, TechGear SA</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>
+                                "Working with MediaBay was a game-changer for our educational platform. They 
+                                created a user-friendly system that now serves over 10,000 students. Their 
+                                attention to detail is remarkable."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Dr. Amara Okafor">
+                            <div class="author-info">
+                                <h4>Dr. Amara Okafor</h4>
+                                <span>Director, EduTech Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-showcase">
+                    <h3>Featured Case Study: Fashion Forward</h3>
+                    <div class="case-study-content">
+                        <div class="case-study-image">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fashion Store">
+                        </div>
+                        <div class="case-study-details">
+                            <h4>Challenge</h4>
+                            <p>Fashion Forward needed a modern e-commerce platform to showcase their clothing line and compete with international brands.</p>
+                            
+                            <h4>Solution</h4>
+                            <p>We developed a stunning, mobile-first e-commerce website with advanced filtering, wishlist functionality, and integrated social media marketing tools.</p>
+                            
+                            <h4>Results</h4>
+                            <div class="case-results">
+                                <div class="result-item">
+                                    <span class="result-number">250%</span>
+                                    <span class="result-label">Increase in Sales</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">400%</span>
+                                    <span class="result-label">More Traffic</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">85%</span>
+                                    <span class="result-label">Mobile Conversion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industry Selector Section -->
+        <section id="industries" class="industries-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Industry Templates</h2>
+                    <p class="section-subtitle">
+                        Specialized solutions for different business types
+                    </p>
+                </div>
+                
+                <div class="industries-grid">
+                    <div class="industry-card" data-industry="photography">
+                        <div class="industry-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Photography</h3>
+                        <p>Stunning portfolio websites for photographers and visual artists</p>
+                        <div class="industry-features">
+                            <span>Gallery Showcase</span>
+                            <span>Booking System</span>
+                            <span>Client Proofing</span>
+                        </div>
+                        <button class="btn btn-outline industry-btn">View Templates</button>
+                    </div>
+                    
+                    <div class="industry-card" data-industry="ecommerce">
+                        <div class="industry-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>E-Commerce</h3>
+                        <p>Complete online stores with payment processing and inventory management</p>
+                        <div class="industry-features">
+                            <span>Product Catalog</span>
+                            <span>Payment Gateway</span>
+                            <span>Order Management</span>
+                        </div>
+                        <button class="btn btn-outline industry-btn">View Templates</button>
+                    </div>
+                    
+                    <div class="industry-card" data-industry="education">
+                        <div class="industry-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Education</h3>
+                        <p>Learning management systems and educational platforms</p>
+                        <div class="industry-features">
+                            <span>Course Management</span>
+                            <span>Student Portal</span>
+                            <span>Progress Tracking</span>
+                        </div>
+                        <button class="btn btn-outline industry-btn">View Templates</button>
+                    </div>
+                    
+                    <div class="industry-card" data-industry="fashion">
+                        <div class="industry-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3>Fashion</h3>
+                        <p>Trendy websites for fashion brands and clothing retailers</p>
+                        <div class="industry-features">
+                            <span>Lookbook</span>
+                            <span>Size Guide</span>
+                            <span>Style Blog</span>
+                        </div>
+                        <button class="btn btn-outline industry-btn">View Templates</button>
+                    </div>
+                    
+                    <div class="industry-card" data-industry="restaurant">
+                        <div class="industry-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Restaurant</h3>
+                        <p>Appetizing websites for restaurants and food businesses</p>
+                        <div class="industry-features">
+                            <span>Menu Display</span>
+                            <span>Online Ordering</span>
+                            <span>Reservations</span>
+                        </div>
+                        <button class="btn btn-outline industry-btn">View Templates</button>
+                    </div>
+                    
+                    <div class="industry-card" data-industry="healthcare">
+                        <div class="industry-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Healthcare</h3>
+                        <p>Professional websites for medical practices and healthcare providers</p>
+                        <div class="industry-features">
+                            <span>Appointment Booking</span>
+                            <span>Patient Portal</span>
+                            <span>HIPAA Compliant</span>
+                        </div>
+                        <button class="btn btn-outline industry-btn">View Templates</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Estimator Section -->
+        <section id="quote" class="quote-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get Your Quote</h2>
+                    <p class="section-subtitle">
+                        Calculate an estimate for your project in real-time
+                    </p>
+                </div>
+                
+                <div class="quote-calculator">
+                    <div class="quote-form">
+                        <div class="quote-step active" data-step="1">
+                            <h3>Project Type</h3>
+                            <div class="option-group">
+                                <label class="option-card">
+                                    <input type="radio" name="project-type" value="basic" data-price="15000">
+                                    <div class="option-content">
+                                        <i class="fas fa-file-alt"></i>
+                                        <h4>Basic Website</h4>
+                                        <p>Simple informational website</p>
+                                        <span class="price">From R15,000</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="option-card">
+                                    <input type="radio" name="project-type" value="business" data-price="25000">
+                                    <div class="option-content">
+                                        <i class="fas fa-briefcase"></i>
+                                        <h4>Business Website</h4>
+                                        <p>Professional business presence</p>
+                                        <span class="price">From R25,000</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="option-card">
+                                    <input type="radio" name="project-type" value="ecommerce" data-price="45000">
+                                    <div class="option-content">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <h4>E-Commerce</h4>
+                                        <p>Online store with payments</p>
+                                        <span class="price">From R45,000</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="option-card">
+                                    <input type="radio" name="project-type" value="custom" data-price="75000">
+                                    <div class="option-content">
+                                        <i class="fas fa-cogs"></i>
+                                        <h4>Custom Application</h4>
+                                        <p>Complex web application</p>
+                                        <span class="price">From R75,000</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quote-step" data-step="2">
+                            <h3>Number of Pages</h3>
+                            <div class="option-group">
+                                <label class="option-card">
+                                    <input type="radio" name="pages" value="1-3" data-multiplier="1">
+                                    <div class="option-content">
+                                        <i class="fas fa-file"></i>
+                                        <h4>1-3 Pages</h4>
+                                        <p>Perfect for small businesses</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="option-card">
+                                    <input type="radio" name="pages" value="4-7" data-multiplier="1.5">
+                                    <div class="option-content">
+                                        <i class="fas fa-copy"></i>
+                                        <h4>4-7 Pages</h4>
+                                        <p>Standard business website</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="option-card">
+                                    <input type="radio" name="pages" value="8-15" data-multiplier="2">
+                                    <div class="option-content">
+                                        <i class="fas fa-folder"></i>
+                                        <h4>8-15 Pages</h4>
+                                        <p>Comprehensive website</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="option-card">
+                                    <input type="radio" name="pages" value="15+" data-multiplier="3">
+                                    <div class="option-content">
+                                        <i class="fas fa-archive"></i>
+                                        <h4>15+ Pages</h4>
+                                        <p>Large-scale website</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quote-step" data-step="3">
+                            <h3>Additional Features</h3>
+                            <div class="features-grid">
+                                <label class="feature-card">
+                                    <input type="checkbox" name="features" value="cms" data-price="5000">
+                                    <div class="feature-content">
+                                        <i class="fas fa-edit"></i>
+                                        <h4>Content Management</h4>
+                                        <p>Easy content updates</p>
+                                        <span class="price">+R5,000</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="feature-card">
+                                    <input type="checkbox" name="features" value="seo" data-price="3000">
+                                    <div class="feature-content">
+                                        <i class="fas fa-search"></i>
+                                        <h4>SEO Optimization</h4>
+                                        <p>Search engine optimization</p>
+                                        <span class="price">+R3,000</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="feature-card">
+                                    <input type="checkbox" name="features" value="analytics" data-price="2000">
+                                    <div class="feature-content">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <h4>Analytics Setup</h4>
+                                        <p>Google Analytics integration</p>
+                                        <span class="price">+R2,000</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="feature-card">
+                                    <input type="checkbox" name="features" value="booking" data-price="8000">
+                                    <div class="feature-content">
+                                        <i class="fas fa-calendar"></i>
+                                        <h4>Booking System</h4>
+                                        <p>Online appointment booking</p>
+                                        <span class="price">+R8,000</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="feature-card">
+                                    <input type="checkbox" name="features" value="gallery" data-price="4000">
+                                    <div class="feature-content">
+                                        <i class="fas fa-images"></i>
+                                        <h4>Photo Gallery</h4>
+                                        <p>Professional image gallery</p>
+                                        <span class="price">+R4,000</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="feature-card">
+                                    <input type="checkbox" name="features" value="multilingual" data-price="6000">
+                                    <div class="feature-content">
+                                        <i class="fas fa-globe"></i>
+                                        <h4>Multi-language</h4>
+                                        <p>Multiple language support</p>
+                                        <span class="price">+R6,000</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quote-navigation">
+                            <button class="btn btn-outline" id="quote-prev" style="display: none;">
+                                <i class="fas fa-arrow-left"></i>
+                                Previous
+                            </button>
+                            <button class="btn btn-primary" id="quote-next">
+                                Next
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="quote-summary">
+                        <div class="summary-card">
+                            <h3>Project Estimate</h3>
+                            <div class="price-breakdown">
+                                <div class="price-item">
+                                    <span>Base Price:</span>
+                                    <span id="base-price">R0</span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Page Multiplier:</span>
+                                    <span id="page-multiplier">×1</span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Additional Features:</span>
+                                    <span id="features-price">R0</span>
+                                </div>
+                                <hr>
+                                <div class="price-total">
+                                    <span>Total Estimate:</span>
+                                    <span id="total-price">R0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="estimate-note">
+                                <p><i class="fas fa-info-circle"></i> This is a rough estimate. Final pricing may vary based on specific requirements and complexity.</p>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-full" onclick="scrollToSection('contact')">
+                                <i class="fas fa-paper-plane"></i>
+                                Request Detailed Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">
+                        Ready to start your project? Let's discuss your requirements
+                    </p>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Cape Town, South Africa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+27 73 213 7041</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>mediabaythree@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-map">
+                            <div id="map" class="map-container">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.2!2d18.4241!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc676c3b5c5b5b%3A0x5b5b5b5b5b5b5b5b!2sCape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
+                                    width="100%" 
+                                    height="200" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="form-error" id="name-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="form-error" id="email-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="project-type">Project Type *</label>
+                                <select id="project-type" name="project-type" required>
+                                    <option value="">Select Project Type</option>
+                                    <option value="basic-website">Basic Website</option>
+                                    <option value="business-website">Business Website</option>
+                                    <option value="ecommerce">E-Commerce Store</option>
+                                    <option value="web-application">Web Application</option>
+                                    <option value="mobile-app">Mobile App</option>
+                                    <option value="seo-marketing">SEO & Marketing</option>
+                                    <option value="maintenance">Website Maintenance</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="form-error" id="project-type-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">Budget (ZAR) *</label>
+                                <select id="budget" name="budget" required>
+                                    <option value="">Select Budget Range</option>
+                                    <option value="10000-25000">R10,000 - R25,000</option>
+                                    <option value="25000-50000">R25,000 - R50,000</option>
+                                    <option value="50000-100000">R50,000 - R100,000</option>
+                                    <option value="100000-250000">R100,000 - R250,000</option>
+                                    <option value="250000+">R250,000+</option>
+                                </select>
+                                <span class="form-error" id="budget-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Project Details *</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project requirements, goals, and any specific features you need..." required></textarea>
+                                <span class="form-error" id="message-error"></span>
+                            </div>
+                            
+                            <!-- Honeypot field for spam protection -->
+                            <div class="honeypot">
+                                <input type="text" name="website" tabindex="-1" autocomplete="off">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for web development tips and updates
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#" onclick="showModal('terms')">Terms of Service</a> and <a href="#" onclick="showModal('privacy')">Privacy Policy</a> *
+                                </label>
+                                <span class="form-error" id="terms-error"></span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <img src="./assets/images/logo.jpeg" alt="MediaBay Logo">
+                            <h3>MediaBay</h3>
+                        </div>
+                        <p>We customize modern, responsive websites to client desires. Based in Cape Town, serving South Africa and the world.</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/1Mcptsfa6T/" target="_blank" rel="noopener">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://wa.me/27732137041" target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.instagram.com/_mediabay?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Web Development</a></li>
+                            <li><a href="#services">E-Commerce Solutions</a></li>
+                            <li><a href="#services">Mobile Apps</a></li>
+                            <li><a href="#services">SEO & Marketing</a></li>
+                            <li><a href="#services">Maintenance & Support</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#quote">Get Quote</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contact Info</h4>
+                        <div class="contact-info">
+                            <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                            <p><i class="fas fa-phone"></i> +27 73 213 7041</p>
+                            <p><i class="fas fa-envelope"></i> mediabaythree@gmail.com</p>
+                        </div>
+                        
+                        <div class="newsletter-signup">
+                            <h5>Newsletter</h5>
+                            <form id="newsletter-form">
+                                <div class="newsletter-input">
+                                    <input type="email" placeholder="Your email" required>
+                                    <button type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-links">
+                        <a href="#" onclick="showModal('privacy')">Privacy Policy</a>
+                        <a href="#" onclick="showModal('terms')">Terms of Service</a>
+                        <a href="#" onclick="showModal('cookies')">Cookie Policy</a>
+                    </div>
+                    <p>&copy; 2025 MediaBay. All rights reserved. Designed and developed with ❤️ in Cape Town, South Africa.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Floating Chatbot -->
+    <div id="chatbot" class="chatbot">
+        <div class="chatbot-toggle" id="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+            <span class="chatbot-badge" id="chatbot-badge">1</span>
+        </div>
+        
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <img src="./assets/images/logo.jpeg" alt="MediaBay Assistant">
+                </div>
+                <div class="chatbot-info">
+                    <h4>MediaBay Assistant</h4>
+                    <span class="status online">Online</span>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hi! I'm your MediaBay assistant. How can I help you today?</p>
+                        <div class="quick-actions">
+                            <button class="quick-action" data-action="pricing">💰 Pricing Info</button>
+                            <button class="quick-action" data-action="templates">🎨 View Templates</button>
+                            <button class="quick-action" data-action="location">📍 Our Location</button>
+                            <button class="quick-action" data-action="meeting">📅 Schedule Meeting</button>
+                        </div>
+                    </div>
+                    <span class="message-time">Just now</span>
+                </div>
+            </div>
+            
+            <div class="chatbot-input">
+                <div class="input-group">
+                    <button class="voice-btn" id="voice-btn">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <input type="text" id="chatbot-input" placeholder="Type your message...">
+                    <button class="send-btn" id="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal" id="auth-modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Login</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label for="auth-email">Email</label>
+                        <input type="email" id="auth-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="auth-password">Password</label>
+                        <input type="password" id="auth-password" required>
+                    </div>
+                    <div class="form-group" id="confirm-password-group" style="display: none;">
+                        <label for="auth-confirm-password">Confirm Password</label>
+                        <input type="password" id="auth-confirm-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="auth-submit">Login</button>
+                </form>
+                <div class="auth-switch">
+                    <p id="auth-switch-text">Don't have an account? <a href="#" id="auth-switch-link">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="terms-modal">
+            <div class="modal-header">
+                <h3>Terms of Service</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <div class="terms-content">
+                    <h4>1. Acceptance of Terms</h4>
+                    <p>By accessing and using MediaBay's services, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                    
+                    <h4>2. Services</h4>
+                    <p>MediaBay provides web development, design, and digital marketing services. We reserve the right to modify or discontinue services at any time.</p>
+                    
+                    <h4>3. Payment Terms</h4>
+                    <p>Payment terms are specified in individual project agreements. Late payments may incur additional fees.</p>
+                    
+                    <h4>4. Intellectual Property</h4>
+                    <p>Upon full payment, clients receive ownership of custom-developed code and designs, excluding third-party components.</p>
+                    
+                    <h4>5. Limitation of Liability</h4>
+                    <p>MediaBay's liability is limited to the amount paid for services. We are not liable for indirect or consequential damages.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="privacy-modal">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <div class="privacy-content">
+                    <h4>Information We Collect</h4>
+                    <p>We collect information you provide directly, such as contact details and project requirements.</p>
+                    
+                    <h4>How We Use Information</h4>
+                    <p>We use your information to provide services, communicate with you, and improve our offerings.</p>
+                    
+                    <h4>Information Sharing</h4>
+                    <p>We do not sell or share your personal information with third parties except as necessary to provide services.</p>
+                    
+                    <h4>Data Security</h4>
+                    <p>We implement appropriate security measures to protect your personal information.</p>
+                    
+                    <h4>Contact Us</h4>
+                    <p>For privacy-related questions, contact us at mediabaythree@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assets/js/performance.js"></script>
+    <script src="./assets/js/security.js"></script>
+    <script src="./assets/js/sanitization.js"></script>
+    <script src="./assets/js/analytics.js"></script>
+    <script src="./assets/js/payments.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
